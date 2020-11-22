@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="container">
+        <div id="main">
+            <div id="cursor-effect">
+                <h1 class="text primary">
+                    Hi, my name is Chris
+                </h1>
+            </div>
+            <p class="text secondary">Software developer, upcoming machine learning engineer and bug bounty hunter</p>
+        </div>
+
+        <div id="links-container">
+            <a href="https://github.com/MyNameIsAres" class="links"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/christiaan-vonk-b3b133151/" class="links"><i
+                    class="fab fa-linkedin-in"></i></a>
+            <a href="" class="links"><i class="fab fa-instagram"></i></a>
+
+        </div>
+        <a href="#project-list" id="scroll-to-projects">
+            Projects
+        </a>
+    </div>
+
+    <div id="project-header">
+        <button class="category-item active" onclick="filterSelection('all')">All</button>
+        <button class="category-item" onclick="filterSelection('laravel')">Laravel</button>
+        <button class="category-item" onclick="filterSelection('open-source')">Open Source</button>
+        <button class="category-item" onclick="filterSelection('personal')">Personal</button>
+    </div>
+
+    <section class="section" id="project-list">
+
+        <ol id="project-grid">
+
+        </ol>
+    </section>
+
+</body>
+    <script src="index.js"></script>
+</html>
