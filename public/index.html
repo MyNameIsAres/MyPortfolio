@@ -34,11 +34,44 @@
         </a>
     </div>
 
+    <!-- TODO: Consider refactoring to class-based solution -->
+    <section id="about-me">
+        <div id="about-me-background">
+            <div id="content-wrapper">
+                <div id="content">
+                    <div id=about-me-text-wrapper>
+                        <div id="about-me-text">
+                            <h1 id="about-me-header">About me</h1>
+                            <p id="paragraph-about-me">
+
+                                Hi! I'm <span class="hoverable self">Chris</span>, a software developer from the Netherlands with a passion to use different technologies 
+                                to create a better and sustainable <span class="hoverable future">future</span>. In my spare time I write <span class="hoverable spigot">Minecraft Plugins</span> with Java, 
+                                working on <span class="hoverable ai">machine learning</span> projects, and I'm working to make <span class="hoverable eh">Ethical hacking</span> a hobby.
+                                <br>
+                                <br>
+                                Psst, I'm also a huge <span class="hoverable formula">Formula</span> 1 fan!
+
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div id="image-section">
+                        <div id="image-content-wrapper">
+                            <img id="img-content" src="images/about-me/self.jpg" alt="Woops.. there's supposed to be an image here!">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <div id="project-header">
-        <button class="category-item active" onclick="filterSelection('all')">All</button>
-        <button class="category-item" onclick="filterSelection('laravel')">Laravel</button>
-        <button class="category-item" onclick="filterSelection('open-source')">Open Source</button>
-        <button class="category-item" onclick="filterSelection('personal')">Personal</button>
+        <button id="all" class="category-item active">All</button>
+        <button id="laravel" class="category-item">Laravel</button>
+        <button id="java" class="category-item">Java</button>
+        <button id="open-source" class="category-item">Open Source</button>
     </div>
 
     <section class="section" id="project-list">

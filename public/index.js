@@ -1,104 +1,121 @@
+// TODO: Clean this up once the event listeners are fitted with DRY principle
 const projectCard = document.getElementsByClassName('project');
 const projectCardButton = document.getElementsByClassName('button');
 const closeButtonCard = document.getElementsByClassName('project-close');
 const projectSection = document.getElementById('overlay');
-
-let projectThumbnail = document.getElementsByClassName('thumbnail');
 let selectionButtons = document.getElementsByClassName('category-item');
+const projects = Array.from(document.querySelectorAll(".thumbnail"));
+const allButton = document.getElementById('all');
+const laravelButton = document.getElementById('laravel');
+const javaButton = document.getElementById('java');
+const openSourceButton = document.getElementById('open-source');
 
-const x = document.getElementById('toggle');
-console.log(x);
-x.addEventListener('click', () => {
+/*
+  TODO: Simplify this to fit the DRY priniciple and prevent hard-coding
+*/
+allButton.addEventListener('click', () => {
+  projects.forEach(item => {
+    item.classList.remove("remove");
+  });
 });
 
-console.log("I WORK FINE NO WORRIES");
-
-filterSelection("all");
-function filterSelection(category) {
-  if (category == "all") category = "";
-  for (let i = 0; i < projectThumbnail.length; i++) {
-    w3RemoveClass(projectThumbnail[i], "show");
-    if (projectThumbnail[i].className.indexOf(category) > -1) w3AddClass(projectThumbnail[i], "show");
-    console.log(projectThumbnail[i].classList);
-}
-}
-
-function w3AddClass(element, name) {
-    console.log("Trying to add");
-  let firstArray = element.className.split(" ");
-  let secondArray = name.split(" ");
-  for (let i = 0; i < secondArray.length; i++) {
-    if (firstArray.indexOf(secondArray[i]) == -1) {element.className += " " + secondArray[i];}
-    console.log(" I am first array" + firstArray);
-    console.log(" I am second array: " + secondArray);
-}
-}
-
-function w3RemoveClass(element, name) {
-  let firstArray = element.className.split(" ");
-  let secondArray = name.split(" ");
-  for (let i = 0; i < secondArray.length; i++) {
-    while (firstArray.indexOf(secondArray[i]) > -1) {
-      firstArray.splice(firstArray.indexOf(secondArray[i]), 1);     
+laravelButton.addEventListener('click', () => {
+  projects.forEach(item => {
+    item.classList.remove("remove");
+    if (!item.classList.contains("laravel")) {
+      item.classList.add('remove');
     }
-  }
-  element.className = firstArray.join(" ");
-}
+  });
+});
 
-Array.from(selectionButtons).forEach(function(element) {
-
-    element.addEventListener('click', () => {
-        let current = document.getElementsByClassName('active');
-//         console.log(current + " I am current");
-//         console.log(current[0] + " I am also a current")
-
-    console.log(current[0].className + " I am current");
-        // current.className.replace("active", "")
-        current[0].classList.remove("active");
-
-        // current.className.replace("active", "");
-        
-        // console.log(current[0].classList);
-        element.classList.add('active');
-
-        // console.log()
-    });
+javaButton.addEventListener('click', () => {
+  projects.forEach(item => {
+    item.classList.remove("remove");
+    if (!item.classList.contains("java")) {
+      item.classList.add('remove');
+    }
+  });
 
 });
 
+openSourceButton.addEventListener('click', () => {
+  projects.forEach(item => {
+    item.classList.remove("remove");
+    if (!item.classList.contains("open-source")) {
+      item.classList.add('remove');
+    }
+  });
+});
 
+
+Array.from(selectionButtons).forEach(function (element) {
+
+  element.addEventListener('click', () => {
+    let current = document.getElementsByClassName('active');
+
+    current[0].classList.remove("active");
+    element.classList.add('active');
+  });
+
+});
+
+// TODO: Refactor this code, it's terrible Javascript.
 let firstCounter = 0;
 let secondCounter = 0;
 
-
-
-
-
-
 Array.from(projectCardButton).forEach(function (element) {
+  let x = projectCardButton[firstCounter].id = firstCounter;
 
-    let x = projectCardButton[firstCounter].id = firstCounter;
-
-    firstCounter++;
-    console.log("ppppppppppppppp");
-    element.addEventListener('click', () => {
-        console.log("lsdajfaslkfj");
-        projectSection.style.visibility = 'visible';
-        projectCard[x].style.display = 'block';
-    })
+  firstCounter++;
+  element.addEventListener('click', () => {
+    projectSection.style.visibility = 'visible';
+    projectCard[x].style.display = 'block';
+  })
 });
 
 
 Array.from(closeButtonCard).forEach(function (element) {
-    let x = closeButtonCard[secondCounter].id = secondCounter;
-    secondCounter++
+  let x = closeButtonCard[secondCounter].id = secondCounter;
+  secondCounter++
 
-    element.addEventListener('click', () => {
-        console.log("lsdajfaslkfj");
-
-        projectCard[x].style.display = 'none';
-        projectSection.style.visibility = 'hidden';
-
-
-    });
+  element.addEventListener('click', () => {
+    projectCard[x].style.display = 'none';
+    projectSection.style.visibility = 'hidden';
+  });
 });
+
+const testVariable = document.getElementsByClassName('hoverable');
+let aboutMeBackground = document.getElementById("about-me-background");
+let imageInside = document.getElementById("img-content");
+
+
+Array.from(testVariable).forEach((element) => {
+  element.addEventListener('mouseover', () => {
+    changeBackground(element);
+  });
+});
+
+// TODO Change to a more dynamic solution.
+function changeBackground(element) {
+  const classList = element.classList;
+
+  if (classList.contains("spigot")) {
+    aboutMeBackground.style.background = "linear-gradient(270deg, #f19a1a, #ed8106)";
+    imageInside.src = "images/about-me/villager.gif";
+  } else if (classList.contains("eh")) {
+    aboutMeBackground.style.background = "linear-gradient(270deg, #f44881, #ec454f)";
+    imageInside.src = "images/about-me/alternative.jpg";
+  } else if (classList.contains("ai")) {
+    aboutMeBackground.style.background = "linear-gradient(270deg,#21c8f6,#637bff)"; // aboutMeBackground.style.background ="linear-gradient(270deg,#f44881,#ec454f)";
+    imageInside.src = "images/about-me/machine-learning-img.jpg";
+  } else if (classList.contains("formula")) {
+    aboutMeBackground.style.background = "linear-gradient(270deg, #004C6C,  #223971)"
+    imageInside.src = "images/about-me/rbr.gif";
+  } else if (classList.contains("future")) {
+    aboutMeBackground.style.background = "linear-gradient(270deg, #6edcc4, #1aab8b)";
+    imageInside.src = "images/about-me/futureimg.jpg";
+  } else if (classList.contains("self")) {
+    imageInside.src = "images/about-me/self.jpg";
+    // return to default
+  }
+}
