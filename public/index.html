@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <div id="container">
+    <section id="container">
         <div id="main">
             <div id="cursor-effect">
                 <h1 class="text primary">
                     Hi, my name is Chris
                 </h1>
             </div>
-            <p class="text secondary">Software developer, upcoming machine learning engineer and bug bounty hunter</p>
+            <p class="text secondary">Software developer, upcoming machine learning engineer, and bug bounty hunter</p>
         </div>
 
         <div id="links-container">
@@ -32,7 +32,7 @@
         <a href="#project-list" id="scroll-to-projects">
             Projects
         </a>
-    </div>
+    </section>
 
     <!-- TODO: Consider refactoring to class-based solution -->
     <section id="about-me">
@@ -68,10 +68,10 @@
     </section>
 
     <div id="project-header">
-        <button id="all" class="category-item active">All</button>
-        <button id="laravel" class="category-item">Laravel</button>
-        <button id="java" class="category-item">Java</button>
-        <button id="open-source" class="category-item">Open Source</button>
+        <button id="all" class="category-item active" data-filter="*" onclick=filterCategories(event)>All</button>
+        <button id="laravel" class="category-item" data-filter="php" onclick=filterCategories(event)>PHP</button>
+        <button id="java" class="category-item" data-filter="java" onclick=filterCategories(event)>Java</button>
+        <button id="open-source" class="category-item" data-filter="open-source" onclick=filterCategories(event)>Open Source</button>
     </div>
 
     <section class="section" id="project-list">

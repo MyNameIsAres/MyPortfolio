@@ -8,7 +8,8 @@ import ProjectCard from './components/ProjectCard';
 export default {
   name: "app",
   components: {
-    ProjectCard
+    ProjectCard,
+  
   }
 };
 </script>

@@ -7,7 +7,7 @@ body {
 .project {
     position: fixed;
     width: 50%;
-    min-height: 60%;
+    min-height: 48%;
     border-radius: 20px;
     display: none;
     z-index: 5;
@@ -29,28 +29,6 @@ body {
     background-color: rgba(0, 0, 0, .3);
 }
 
-
-/* .project-image {
-    position: absolute;
-    right: 50%;
-    height: 100%;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-    width: 50%;
-    background-position: center;
-    background-size: cover;
-    border-radius: 20px
-}
-
-.project-image video {
-    width: 100%;
-}
-
-.project-image .project-detail-image {
-    height: 100% !important;
-
-} */
-
 .project-close:hover {
     transform: scale(1.2);
 }
@@ -58,7 +36,6 @@ body {
 svg.svg-inline--fa.fa-times.fa-w-11 {
     width: 0.6875em;
 }
-
 
 .project-close {
     position: absolute;
@@ -72,7 +49,7 @@ svg.svg-inline--fa.fa-times.fa-w-11 {
 }
 
 .tag-item {
-    margin: .8rem !important;
+    margin: .8rem;
     font-weight: lighter;
     font-size: 1rem;
     padding: .5rem;
@@ -86,16 +63,13 @@ svg.svg-inline--fa.fa-times.fa-w-11 {
     outline: none;
 }
 
-
-
 .project-description {
     padding: 1.5rem;
 }
 
 .project-description h3 {
     font-size: 2rem;
-    height: 5rem;
-
+    height: 3rem;
 }
 
 .project-description ul {
@@ -115,6 +89,10 @@ svg.svg-inline--fa.fa-times.fa-w-11 {
     border-radius: 20px;
 }
 
+.project-description li:first-child {
+    margin-left: 0;
+}
+
 .project-description h5 {
     font-size: 1.3rem;
 }
@@ -122,7 +100,7 @@ svg.svg-inline--fa.fa-times.fa-w-11 {
 .project-description p {
     margin-top: 1rem;
     font-size: 1.1rem;
-    height: 16rem;
+    height: 10rem;
     line-height: 1.5;
     overflow-y: auto;
 
@@ -130,6 +108,7 @@ svg.svg-inline--fa.fa-times.fa-w-11 {
 
 .links-container {
     position: relative;
+    margin-top: -3%;
 }
 
 .btn-detail {
@@ -144,7 +123,6 @@ svg.svg-inline--fa.fa-times.fa-w-11 {
     color: #6e6d7a;
     border-radius: 8px;
     background-color: rgba(51, 51, 51, 0.1);
-    ;
     outline: none;
 }
 

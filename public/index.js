@@ -3,53 +3,25 @@ const projectCard = document.getElementsByClassName('project');
 const projectCardButton = document.getElementsByClassName('button');
 const closeButtonCard = document.getElementsByClassName('project-close');
 const projectSection = document.getElementById('overlay');
-let selectionButtons = document.getElementsByClassName('category-item');
-const projects = Array.from(document.querySelectorAll(".thumbnail"));
-const allButton = document.getElementById('all');
-const laravelButton = document.getElementById('laravel');
-const javaButton = document.getElementById('java');
-const openSourceButton = document.getElementById('open-source');
+const selectionButtons = document.getElementsByClassName('category-item');
 
-/*
-  TODO: Simplify this to fit the DRY priniciple and prevent hard-coding
-*/
-allButton.addEventListener('click', () => {
-  projects.forEach(item => {
-    item.classList.remove("remove");
-  });
-});
+function filterCategories(e) {
+  const categories = document.querySelectorAll("#project-grid li");
+  let filter = e.target.dataset.filter;
 
-laravelButton.addEventListener('click', () => {
-  projects.forEach(item => {
-    item.classList.remove("remove");
-    if (!item.classList.contains("laravel")) {
-      item.classList.add('remove');
-    }
-  });
-});
+  if (filter === '*') {
+    categories.forEach(category => category.classList.remove('hidden'));
+  } else {
+    categories.forEach(category => {
+      category.classList.contains(filter) ? category.classList.remove('hidden') : category.classList.add('hidden')
+    });
+  }
+}
 
-javaButton.addEventListener('click', () => {
-  projects.forEach(item => {
-    item.classList.remove("remove");
-    if (!item.classList.contains("java")) {
-      item.classList.add('remove');
-    }
-  });
-
-});
-
-openSourceButton.addEventListener('click', () => {
-  projects.forEach(item => {
-    item.classList.remove("remove");
-    if (!item.classList.contains("open-source")) {
-      item.classList.add('remove');
-    }
-  });
-});
-
-
+/* =====================================================
+                Toggles the active button.
+   =====================================================*/ 
 Array.from(selectionButtons).forEach(function (element) {
-
   element.addEventListener('click', () => {
     let current = document.getElementsByClassName('active');
 
@@ -59,6 +31,10 @@ Array.from(selectionButtons).forEach(function (element) {
 
 });
 
+
+/* =====================================================
+                Opens the project card
+   =====================================================*/ 
 // TODO: Refactor this code, it's terrible Javascript.
 let firstCounter = 0;
 let secondCounter = 0;
@@ -73,7 +49,9 @@ Array.from(projectCardButton).forEach(function (element) {
   })
 });
 
-
+/* =====================================================
+            This is to close a project card
+   =====================================================*/ 
 Array.from(closeButtonCard).forEach(function (element) {
   let x = closeButtonCard[secondCounter].id = secondCounter;
   secondCounter++
@@ -84,6 +62,10 @@ Array.from(closeButtonCard).forEach(function (element) {
   });
 });
 
+
+/* =====================================================
+            This is for hovering on 'about me'
+   =====================================================*/ 
 const testVariable = document.getElementsByClassName('hoverable');
 let aboutMeBackground = document.getElementById("about-me-background");
 let imageInside = document.getElementById("img-content");
@@ -100,8 +82,9 @@ function changeBackground(element) {
   const classList = element.classList;
 
   if (classList.contains("spigot")) {
-    aboutMeBackground.style.background = "linear-gradient(270deg, #f19a1a, #ed8106)";
     imageInside.src = "images/about-me/villager.gif";
+    aboutMeBackground.style.background = "linear-gradient(270deg, #f19a1a, #ed8106)";
+    // imageInside.src = "images/about-me/villager.gif";
   } else if (classList.contains("eh")) {
     aboutMeBackground.style.background = "linear-gradient(270deg, #f44881, #ec454f)";
     imageInside.src = "images/about-me/alternative.jpg";
