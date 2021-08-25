@@ -1,0 +1,2 @@
+Projects are to have their own dedicated page in the future, featuring a small image gallery,
+technologies used in the project, my role in the project, what I learned, and more.
